@@ -14,15 +14,15 @@ public final class Databases {
     public let eventLoopGroup: EventLoopGroup
     public let threadPool: NIOThreadPool
 
-    private var configurations: [DatabaseID: DatabaseConfiguration]
-    private var defaultID: DatabaseID?
+    public var configurations: [DatabaseID: DatabaseConfiguration]
+    public var defaultID: DatabaseID?
 
     // Currently running database drivers.
     // Access to this variable must be synchronized.
-    private var drivers: [DatabaseID: DatabaseDriver]
+    public var drivers: [DatabaseID: DatabaseDriver]
 
     // Synchronize access across threads.
-    private var lock: Lock
+    public var lock: Lock
 
     public struct Middleware {
         let databases: Databases
